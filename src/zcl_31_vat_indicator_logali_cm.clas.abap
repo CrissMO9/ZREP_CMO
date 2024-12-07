@@ -1,0 +1,14 @@
+CLASS zcl_31_vat_indicator_logali_cm DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    DATA vat_ind TYPE string.
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+CLASS zcl_31_vat_indicator_logali_cm IMPLEMENTATION.
+
+ENDCLASS.

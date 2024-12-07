@@ -1,21 +1,13 @@
-CLASS zcl_lab_04_person_cm DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_04_PERSON_CM definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS: set_age IMPORTING iv_age TYPE i,
-             get_age EXPORTING ev_age TYPE i.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
-    DATA age TYPE i.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zcl_lab_04_person_cm IMPLEMENTATION.
-  METHOD get_age.
-    ev_age = age.
-  ENDMETHOD.
-  METHOD set_age.
-    age = iv_age.
-  ENDMETHOD.
+
+
+CLASS ZCL_LAB_04_PERSON_CM IMPLEMENTATION.
 ENDCLASS.

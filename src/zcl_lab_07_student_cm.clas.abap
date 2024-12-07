@@ -1,18 +1,13 @@
-CLASS zcl_lab_07_student_cm DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_07_STUDENT_CM definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    DATA: birth_date TYPE zdate READ-ONLY.
-
-    METHODS set_birth_date IMPORTING iv_birth_date TYPE zdate.
-  PROTECTED SECTION.
-  PRIVATE SECTION.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zcl_lab_07_student_cm IMPLEMENTATION.
-  METHOD set_birth_date.
-    birth_date = iv_birth_date.
-  ENDMETHOD.
+
+
+CLASS ZCL_LAB_07_STUDENT_CM IMPLEMENTATION.
 ENDCLASS.

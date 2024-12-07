@@ -1,0 +1,14 @@
+CLASS zcl_29_keyboard_logali_cm DEFINITION
+  PUBLIC
+  FINAL
+  CREATE PUBLIC .
+
+  PUBLIC SECTION.
+    DATA keyboard_type TYPE string.
+
+  PROTECTED SECTION.
+  PRIVATE SECTION.
+ENDCLASS.
+
+CLASS zcl_29_keyboard_logali_cm IMPLEMENTATION.
+ENDCLASS.

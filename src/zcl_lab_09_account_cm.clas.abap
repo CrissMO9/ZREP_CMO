@@ -1,22 +1,13 @@
-CLASS zcl_lab_09_account_cm DEFINITION
-  PUBLIC
-  FINAL
-  CREATE PUBLIC .
+class ZCL_LAB_09_ACCOUNT_CM definition
+  public
+  create private .
 
-  PUBLIC SECTION.
-    METHODS: set_iban IMPORTING iban TYPE string,
-             get_iban EXPORTING iban TYPE string.
-
-  PROTECTED SECTION.
-  PRIVATE SECTION.
-    DATA iban TYPE string.
+public section.
+protected section.
+private section.
 ENDCLASS.
 
-CLASS zcl_lab_09_account_cm IMPLEMENTATION.
-  METHOD get_iban.
-    iban = me->iban.
-  ENDMETHOD.
-  METHOD set_iban.
-    me->iban = iban.
-  ENDMETHOD.
+
+
+CLASS ZCL_LAB_09_ACCOUNT_CM IMPLEMENTATION.
 ENDCLASS.
