@@ -10,30 +10,67 @@ CLASS zcl_01_exec_logali_cm DEFINITION
   PRIVATE SECTION.
 ENDCLASS.
 
-
-
 CLASS zcl_01_exec_logali_cm IMPLEMENTATION.
-
 
   METHOD if_oo_adt_classrun~main.
 
 ***********************************************************************
+** Example for zcl_41_building_logali_cm
+***********************************************************************
+    DATA(go_north_building)  = NEW zcl_41_building_logali_cm(  ).
+    DATA(go_south_building) = NEW zcl_41_building_logali_cm(  ).
+    DATA(go_east_building)   = NEW zcl_41_building_logali_cm(  ).
+    DATA(go_west_building)   = NEW zcl_41_building_logali_cm(  ).
+    DATA(go_access) = NEW zcl_42_access_logali_cm(  ).
+
+*    SET HANDLER go_access->on_blocked_entrance FOR ALL INSTANCES. "Same as use set handler for each instance " Replace in constructor class 42
+*    SET HANDLER go_access->on_blocked_entrance FOR go_north_building.
+*    SET HANDLER go_access->on_blocked_entrance FOR go_south_building.
+*    SET HANDLER go_access->on_blocked_entrance FOR go_east_building.
+*    SET HANDLER go_access->on_blocked_entrance FOR go_west_building.
+
+    go_north_building->entry = 'NORTH'.
+    go_north_building->close_entry(  ).
+
+    go_south_building->entry = 'SOUTH'.
+    go_south_building->close_entry(  ).
+
+    go_east_building->entry = 'EAST'.
+    go_east_building->close_entry(  ).
+
+    go_west_building->entry = 'WEST'.
+    go_west_building->close_entry(  ).
+
+    out->write( zcl_42_access_logali_cm=>table_blocked_entries ).
+
+***********************************************************************
+** Example for zcl_39_mail_logali_cm
+***********************************************************************
+*    SET HANDLER zcl_40_smtp_logali_cm=>on_new_mail.
+*
+*    DO 3 times.
+*      WAIT UP TO 1 SECONDS.
+*        zcl_39_mail_logali_cm=>compose_mail(  ).
+*    ENDDO.
+*    out->write( zcl_40_smtp_logali_cm=>table_inbox ).
+
+***********************************************************************
 ** Example for zcl_37_americanbank_logali_cm
 ***********************************************************************
-    DATA(go_americanbank) = NEW zcl_37_americanbank_logali_cm(  ).
-    DATA(go_bankclient) = NEW zcl_38_bankclient_logali_cm(  ).
-
-    SET HANDLER go_bankclient->on_new_transfer FOR go_americanbank. "ACTIVATION abap_true by default
-
-    DO 5 TIMES.
-      WAIT UP TO 1 SECONDS.
-      out->write( go_americanbank->create_notification(  ) ).
-      out->write( go_bankclient->notification ).
-      IF sy-index EQ 3.
-        SET HANDLER go_bankclient->on_new_transfer FOR go_americanbank ACTIVATION abap_false. "To deactivate the handle
-        go_bankclient->notification = 'No handler for event new transfer'.
-      ENDIF.
-    ENDDO.
+*    DATA(go_americanbank) = NEW zcl_37_americanbank_logali_cm(  ).
+*    DATA(go_bankclient) = NEW zcl_38_bankclient_logali_cm(  ).
+*
+*    SET HANDLER go_bankclient->on_new_transfer FOR go_americanbank. "ACTIVATION abap_true by default
+*
+*    DO 5 TIMES.
+*      WAIT UP TO 1 SECONDS.
+*      out->write( go_americanbank->create_notification(  ) ).
+*      out->write( go_bankclient->notification ).
+*      IF sy-index EQ 3.
+*        SET HANDLER go_bankclient->on_new_transfer FOR go_americanbank ACTIVATION abap_false. "To deactivate the handle
+*        go_bankclient->notification = 'No handler for event new transfer'.
+*      ENDIF.
+*    ENDDO.
 ***********************************************************************
 ** Example for zcl_35_timer_logali_cm
 ***********************************************************************
